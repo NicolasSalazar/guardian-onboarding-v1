@@ -1,24 +1,18 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/AuthContext';
+import { useLogin } from './useLogin';
+import { styles } from './login.styles';
 
 export default function LoginPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const { login, error, loading } = useAuth();
-  const router = useRouter();
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    try {
-      await login(username, password);
-      router.push('/onboarding');
-    } catch {
-      // Error is handled by AuthContext
-    }
-  };
+  const {
+    username,
+    setUsername,
+    password,
+    setPassword,
+    error,
+    loading,
+    handleSubmit,
+  } = useLogin();
 
   return (
     <div style={styles.wrapper}>
@@ -61,70 +55,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
-const styles: Record<string, React.CSSProperties> = {
-  wrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    paddingTop: '3rem',
-  },
-  form: {
-    background: '#16213e',
-    padding: '2.5rem',
-    borderRadius: '12px',
-    width: '100%',
-    maxWidth: '420px',
-    border: '1px solid #1a1a2e',
-  },
-  title: {
-    textAlign: 'center',
-    color: '#e94560',
-    marginTop: 0,
-    marginBottom: '0.5rem',
-  },
-  hint: {
-    textAlign: 'center',
-    color: '#a8a8b3',
-    fontSize: '0.85rem',
-    marginBottom: '1.5rem',
-  },
-  error: {
-    background: '#e9456020',
-    border: '1px solid #e94560',
-    color: '#e94560',
-    padding: '0.75rem',
-    borderRadius: '6px',
-    marginBottom: '1rem',
-    fontSize: '0.9rem',
-    textAlign: 'center',
-  },
-  field: { marginBottom: '1.2rem' },
-  label: {
-    display: 'block',
-    marginBottom: '0.4rem',
-    color: '#a8a8b3',
-    fontSize: '0.9rem',
-  },
-  input: {
-    width: '100%',
-    padding: '0.7rem',
-    borderRadius: '6px',
-    border: '1px solid #333',
-    background: '#0f3460',
-    color: '#eee',
-    fontSize: '1rem',
-    boxSizing: 'border-box',
-  },
-  button: {
-    width: '100%',
-    padding: '0.8rem',
-    background: '#e94560',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '6px',
-    fontSize: '1rem',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-    marginTop: '0.5rem',
-  },
-};

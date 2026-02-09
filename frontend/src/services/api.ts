@@ -1,11 +1,7 @@
-import {
-  LoginRequest,
-  LoginResponse,
-  Product,
-  OnboardingRequest,
-  OnboardingResponse,
-  ApiResponse,
-} from '@/types';
+import { LoginRequest, LoginResponse } from '@/app/login/login.types';
+import { Product } from '@/app/products/products.types';
+import { OnboardingRequest, OnboardingResponse } from '@/app/onboarding/onboarding.types';
+import { ApiResponse } from '@/types';
 
 const API_BASE = '/api';
 
