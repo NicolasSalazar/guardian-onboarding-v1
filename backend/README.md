@@ -199,6 +199,23 @@ Actualmente el proyecto usa **almacenamiento in-memory** (Maps y Arrays). Los da
 
 Para produccion se recomienda reemplazar los repositorios in-memory por implementaciones con base de datos (PostgreSQL + TypeORM/Prisma), manteniendo las mismas interfaces.
 
+## Docker
+
+```bash
+docker build -t guardian-backend .
+docker run -p 3001:3001 \
+  -e JWT_SECRET=guardian-onboarding-secret-key-2024 \
+  -e JWT_EXPIRATION=300 \
+  -e PORT=3001 \
+  guardian-backend
+```
+
+O con docker-compose desde la raiz del proyecto:
+
+```bash
+docker compose up
+```
+
 ## Tests
 
 ```bash

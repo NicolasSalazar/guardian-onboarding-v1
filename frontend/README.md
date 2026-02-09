@@ -97,7 +97,24 @@ src/
 Las peticiones se hacen a `/api/*` y Next.js las redirige al backend via rewrites configurados en `next.config.js`:
 
 ```javascript
-// /api/:path* -> http://localhost:3001/:path*
+// /api/:path* -> BACKEND_URL/:path*
+```
+
+| Variable | Descripcion | Default |
+|---|---|---|
+| `BACKEND_URL` | URL del backend API | `http://localhost:3001` |
+
+## Docker
+
+```bash
+docker build -t guardian-frontend .
+docker run -p 3000:3000 -e BACKEND_URL=http://localhost:3001 guardian-frontend
+```
+
+O con docker-compose desde la raiz del proyecto:
+
+```bash
+docker compose up
 ```
 
 ## Autenticacion
