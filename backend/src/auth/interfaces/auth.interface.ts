@@ -1,3 +1,5 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export interface JwtPayload {
   sub: string;
   username: string;
@@ -5,8 +7,17 @@ export interface JwtPayload {
   exp?: number;
 }
 
-export interface LoginResponse {
+export class LoginResponse {
+  @ApiProperty({
+    description: 'Token JWT de acceso',
+    example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
+  })
   accessToken: string;
+
+  @ApiProperty({
+    description: 'Tiempo de expiracion del token en segundos',
+    example: 300,
+  })
   expiresIn: number;
 }
 

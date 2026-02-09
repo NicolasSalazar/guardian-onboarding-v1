@@ -97,6 +97,16 @@ src/
     interfaces/           # IHealthService, HealthResponse
 ```
 
+## Documentacion Swagger
+
+Con el servidor en ejecucion, la documentacion interactiva esta disponible en:
+
+```
+http://localhost:3001/api/docs
+```
+
+Desde ahi se pueden explorar y probar todos los endpoints, incluyendo autenticacion JWT.
+
 ## API Endpoints
 
 ### Health
@@ -181,6 +191,7 @@ Authorization: Bearer <token>
 - **ValidationPipe** - Validacion automatica de DTOs con `class-validator`
 - **Cache Layer** - Caching in-memory para productos (TTL: 60s, max: 100 entradas)
 - **JWT Authentication** - Passport + JWT Strategy con guards reutilizables
+- **Swagger/OpenAPI** - Documentacion interactiva en `/api/docs`
 
 ## Almacenamiento
 
