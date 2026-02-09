@@ -19,7 +19,7 @@ export default function OnboardingPage() {
   return (
     <div style={styles.wrapper}>
       <form onSubmit={handleSubmit} style={styles.form}>
-        <h2 style={styles.title}>Nuevo Onboarding</h2>
+        <h2 style={styles.title}>Nuevo Solicitud</h2>
         <p style={styles.subtitle}>
           Complete los datos para solicitar la apertura de cuenta
         </p>
